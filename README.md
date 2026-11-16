@@ -1,4 +1,4 @@
-# Movie Recommender — Learning in Public
+# Movie Recommender
 
 Building a movie recommender for two viewers while learning the mathematics, modeling, and engineering behind recommendation systems.
 
