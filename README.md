@@ -2,7 +2,7 @@
 
 Building a movie recommender for two viewers while learning the mathematics, modeling, and engineering behind recommendation systems.
 
-This is an incremental, AI-assisted learning project. Commits document material covered, implementations, experiments, and corrections as the work happens. Notes distinguish examples and hypotheses from measured results.
+This is an incremental learning project. Commits document material covered, implementations, experiments, and corrections as the work happens. Notes distinguish examples and hypotheses from measured results.
 
 **Current progress:** Chapter 1, Lesson 1.1 — observations, predictions, and a movie-mean baseline. The first lesson notes are available; the discussion is in progress. There is no runnable recommender or trained model yet.
 
