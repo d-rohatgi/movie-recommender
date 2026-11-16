@@ -11,6 +11,4 @@ This is an incremental learning project. Commits document material covered, impl
 
 The intended result is an application with separate taste profiles, a shared ranked shortlist, and feedback from both viewers. Models will be compared against explicit baselines using held-out data. The choice of final model will depend on the evidence.
 
-**Commit practice.** Each meaningful learning or implementation step gets a focused commit, beginning with Chapter 1. Commits include the relevant notes, code, tests, or experiment results, plus a short progress entry. Planned work is labeled as planned. A lesson being introduced does not mean its concepts have been independently demonstrated. Personal course records and unpublished teaching materials stay local.
-
 The public history grows with the project. There are no completed future chapters or prebuilt application hidden behind the current milestone.
