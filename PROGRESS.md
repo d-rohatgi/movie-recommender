@@ -3,9 +3,8 @@
 | Date | Step | Status | Evidence |
 | --- | --- | --- | --- |
 | 2026-11-16 | Chapter 1.1: observations, predictions, and a movie-mean baseline | Lesson introduced; discussion in progress | [Notes and synthetic worked example](chapters/01-foundations/01-observations-and-baselines.md) |
+| 2026-11-16 | Chapter 1.1 — fitting, held-out evaluation, and missing movie history | Worked example covered | [Synthetic held-out calculation and fallback](chapters/01-foundations/01-observations-and-baselines.md#fitting-and-evaluation) |
 
-**This step.** Defined observed ratings, prediction targets, and a simple reference method. Used a synthetic example to show how identical averages can hide different viewer responses. No model was trained or evaluated.
+The worked example uses earlier synthetic ratings to calculate a movie mean, compares the prediction with a later rating, and uses the overall training mean for a film with no training ratings. The calculation was done by hand. The baseline implementation is pending.
 
-**Open question.** What information beyond a movie's average rating would help recommend it to two new viewers?
-
-**Next planned step.** Discuss that question, then examine fitting versus evaluation using a small held-out example. These steps are not yet complete.
+**Next step.** Apply the same rules to a fresh example before implementing the baseline.

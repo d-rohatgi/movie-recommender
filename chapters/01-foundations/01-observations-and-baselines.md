@@ -1,6 +1,6 @@
 # Chapter 1.1 — Observations, predictions, and baselines
 
-Status: lesson introduced; discussion in progress. These notes record the opening lesson and its example, not a completed implementation or assessment.
+The lesson is in progress. These notes include a movie-mean baseline and a synthetic held-out calculation.
 
 **The prediction task.** Start with historical records containing:
 
@@ -29,4 +29,18 @@ The baseline predicts 3 for both films, regardless of who asks. It uses historic
 
 **Discussion question.** What information beyond these means would help recommend a film to two new viewers, and why? Distinguish what the table tells us about the past viewers from what is still unknown about the new pair.
 
-**Project connection.** This defines the intended behavior and limitations of the first baseline. Implementation and comparative evaluation are future work.
+### Fitting and evaluation
+
+Use the four ratings above as training data. Suppose a third viewer later gives Film X a 4. Set that row aside as a held-out observation.
+
+1. **Fit.** Compute and store the movie means using the training rows. For Film X the fitted value is `(5 + 1) / 2 = 3`.
+2. **Predict.** Use Film X's stored value of 3 as the estimate for the third viewer.
+3. **Evaluate.** Compare the estimate with the held-out rating of 4. The absolute error is `abs(4 - 3) = 1` rating point.
+
+Including the 4 when fitting Film X's mean would allow the answer to influence its own prediction. That is data leakage. Keep held-out ratings separate until scoring the fixed predictions.
+
+### A movie with no training ratings
+
+If Film Z has no training ratings, its movie mean is undefined. One fallback is the mean of **all individual training ratings** across movies. Here it is `(5 + 1 + 3 + 3) / 4 = 3`. This is a general estimate for Film Z. A later rating for Film Z can evaluate the fallback under the same holdout rule.
+
+**Project connection.** The example specifies which rows the baseline can use and what it can return for a movie with no training ratings. These rules will guide the implementation and its checks.
