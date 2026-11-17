@@ -22,12 +22,11 @@ def fit_movie_mean(training_rows) -> {}:
 
     if len(movie_map) == 0:
         raise ValueError("None Rating given")
-    movie_means[0] = total/tally
-    return movie_means
+    return {
+        "movie_means": movie_means,
+        "overall_mean": total / tally,
+    }
 
 
 def predict_rating(model, movie_id):
-    if movie_id in model:
-        return model[movie_id]
-    else:
-        return model[0]
+    return model["movie_means"].get(movie_id, model["overall_mean"])
