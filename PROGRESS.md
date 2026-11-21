@@ -10,4 +10,4 @@
 
 Fitting stores `movie_means` and `overall_mean` as separate fields. `movie_means` maps movie IDs to their means. Prediction uses `overall_mean`, calculated across individual training ratings, for an unseen movie. All five tests pass with `python3 -m unittest discover -s tests -v`.
 
-**Next step.** Apply the shortlist rules to a fresh example, then implement ranking.
+**Next step.** Implement ranking under the [shortlist contract](chapters/01-foundations/02-ranking-and-candidates.md).

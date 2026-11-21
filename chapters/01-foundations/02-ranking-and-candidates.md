@@ -19,3 +19,5 @@ Use each eligible movie's predicted rating as its score. Sort by decreasing scor
 For a two-film request, filter X out, score the eligible candidates, and order them as Z then Y. If fewer than `k` candidates qualify, return the available eligible films. If none qualify, the shortlist is empty.
 
 **Project connection.** This turns the existing baseline's scores into a reproducible list that follows the exercise's eligibility rule. The movie-mean scores are shared across viewers. Personal preferences will enter later models.
+
+**Implementation exercise.** Define `recommend_movies(model, candidates, seen_by_you, seen_by_partner, k)` to return an ordered list of movie IDs. The model is the fitted baseline. Candidate IDs are unique strings, both seen inputs are sets of movie IDs, and `k` is a nonnegative integer. Reuse `predict_rating` to score candidates, including its fallback for unknown films. Return up to `k` eligible IDs under the ordering rules above. The ranking implementation is pending.
