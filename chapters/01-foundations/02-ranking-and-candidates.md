@@ -1,6 +1,6 @@
 # Chapter 1.2 — From scores to a shortlist
 
-The lesson is introduced. Ranking implementation is pending.
+The ranking function is implemented. Eight ranking tests and five rating-baseline tests pass on synthetic data.
 
 **Prerequisites and objective.** Use the fitted movie-mean predictor to order eligible movies into a shortlist. This adds a selection step to the rating predictor from Lesson 1.1.
 
@@ -53,4 +53,17 @@ print(sorted(movies, key=ranking_key))
 
 The output contains the original records with their positive scores. The comparison keys are used to determine order. The equivalent anonymous function is `lambda item: (-item[0], item[1])`.
 
-**Implementation exercise.** Define `recommend_movies(model, candidates, seen_by_you, seen_by_partner, k)` to return an ordered list of movie IDs. The model is the fitted baseline. Candidate IDs are unique strings, both seen inputs are sets of movie IDs, and `k` is a nonnegative integer. Reuse `predict_rating` to score candidates, including its fallback for unknown films. Return up to `k` eligible IDs under the ordering rules above. The ranking implementation is pending.
+**Ranking interface.** `recommend_movies(model, candidates, seen_by_you, seen_by_partner, k)` returns an ordered list of movie IDs. The model is the fitted baseline. Candidate IDs are unique strings, both seen inputs are sets of movie IDs, and `k` is a nonnegative integer. The implementation reuses `predict_rating` to score candidates, including its fallback for unknown films. It returns up to `k` eligible IDs under the ordering rules above.
+
+**Verified request with synthetic data.** This example fits the rating baseline and requests two eligible films.
+
+```python
+from src.baseline import fit_movie_mean
+from src.ranking import recommend_movies
+
+training_rows = [("a", "X", 5), ("b", "X", 3), ("a", "Y", 1)]
+model = fit_movie_mean(training_rows)
+shortlist = recommend_movies(model, ["X", "Y", "Z"], {"X"}, set(), 2)
+print(shortlist)
+# ['Z', 'Y']
+```

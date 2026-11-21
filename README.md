@@ -4,7 +4,7 @@ Building a movie recommender for two viewers while learning the mathematics, mod
 
 This is an incremental learning project. Commits document material covered, implementations, experiments, and corrections as the work happens. Notes distinguish examples and hypotheses from measured results.
 
-**Current progress.** Chapter 1 includes a working movie-mean rating predictor with a fallback for movies without training ratings. Five tests cover the predictor using synthetic ratings. Lesson 1.2 introduces filtering and ranking for a shortlist. The recommendation application is pending.
+**Current progress.** Chapter 1 includes a working movie-mean baseline for rating predictions and ordered shortlists. It filters films seen by either viewer and uses a fallback for movies without training ratings. Thirteen tests cover the baseline using synthetic data. The recommendation application is pending.
 
 - [Progress log](PROGRESS.md)
 - [Chapter 1.1: Observations and baselines](chapters/01-foundations/01-observations-and-baselines.md)
