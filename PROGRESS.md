@@ -9,7 +9,8 @@
 | 2026-11-20 | Chapter 1.2 — candidates, eligibility, and ranking | Lesson introduced | [Shortlist rules and a synthetic worked example](chapters/01-foundations/02-ranking-and-candidates.md) |
 | 2026-11-20 | Chapter 1.2 — sort keys for scores and tied movie IDs | Worked example covered | [Tuple comparisons and a custom key](chapters/01-foundations/02-ranking-and-candidates.md#ordering-scores-and-movie-ids) |
 | 2026-11-20 | Chapter 1.2 — movie shortlist ranking | Implemented and tested | [Ranking function](src/ranking.py), [eight ranking tests](tests/test_ranking.py) |
+| 2026-11-20 | Chapter 1.3 — mean absolute error and baseline comparison | Lesson introduced | [Synthetic worked comparison](chapters/01-foundations/03-comparing-baseline-errors.md) |
 
 Fitting stores per-movie means and an overall mean across individual training ratings. Ranking filters films seen by either viewer, scores eligible candidates with the fitted predictor, and returns up to the requested number of IDs. Tied scores use alphabetical movie ID order. All thirteen tests pass with `python3 -m unittest discover -s tests -v`.
 
-**Next step.** Compare movie-mean and overall-mean predictions across several held-out ratings.
+**Next step.** Apply mean absolute error to a fresh held-out example, then implement the evaluation helper.
