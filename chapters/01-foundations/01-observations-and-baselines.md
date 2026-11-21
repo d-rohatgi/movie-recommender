@@ -43,4 +43,23 @@ Including the 4 when fitting Film X's mean would allow the answer to influence i
 
 If Film Z has no training ratings, its movie mean is undefined. One fallback is the mean of **all individual training ratings** across movies. Here it is `(5 + 1 + 3 + 3) / 4 = 3`. This is a general estimate for Film Z. A later rating for Film Z can evaluate the fallback under the same holdout rule.
 
-**Project connection.** The example specifies which rows the baseline can use and what it can return for a movie with no training ratings. These rules will guide the implementation and its checks.
+**Project connection.** The example specifies which rows the baseline can use and what it can return for a movie with no training ratings. The implementation and its tests use these rules.
+
+### Evaluating the implemented baseline
+
+This executable example uses a fresh set of synthetic ratings.
+
+```python
+from src.baseline import fit_movie_mean, predict_rating
+
+training_rows = [("a", "X", 5), ("b", "X", 3), ("a", "Y", 1)]
+held_out = ("c", "X", 2)
+
+model = fit_movie_mean(training_rows)
+prediction = predict_rating(model, held_out[1])
+absolute_error = abs(prediction - held_out[2])
+
+print(prediction, absolute_error)
+```
+
+The verified output is `4.0 2.0`. The training ratings for X give a prediction of `(5 + 3) / 2 = 4`. The held-out rating of 2 enters when computing the absolute error. This single example checks the calculation. Measuring performance across more held-out observations is a later step.
